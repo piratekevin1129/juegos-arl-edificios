@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    
+    <!--FONT AWASOME-->
+    <script src="https://kit.fontawesome.com/a6f44a68f2.js" crossorigin="anonymous"></script>
+
+    <!--Estilos propios-->
+    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/master.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!--Libreria spider-->
+    <link rel="stylesheet" type="text/css" href="assets/spider/sprites/sprite.css" />
+    <link rel="stylesheet" type="text/css" href="assets/spider/sprites/fotograma.css" />
+    <title>Edificios</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="row row-header1">
+                <div class="logo-sura">
+                </div>
+                <div class="titulo">
+                    <h1><span>Módulos Interactivos:</span> Prevención de Riesgos</h1>
+                </div>
+            </div>
+            <div class="row row-header2">
+                <div class="logo-arl"></div>
+                <div id="oficio-title">
+                    <h2 id="oficio-title-txt"></h2>
+                </div>
+            </div>
+        </header>
+
+        <div id="game">
+            <div id="game-scene">
+                <div id="game-wrapper">
+                    <!--fondo-->
+                    <div id="fondo-2"></div>
+                    <div id="fondo-1"></div>
+                    <!---->
+                    <div id="personaje_mc">
+                        <div id="personaje_camina_1" class="spd_movieclip" width="200" height="184" frames="74" src="assets/images/caminata-1/"></div>
+                        <div id="personaje_camina_2" class="spd_movieclip" width="214" height="251" frames="71" src="assets/images/caminata-2/"></div>
+                        <div id="personaje_salto_1" class="spd_movieclip" width="204" height="271" frames="37" src="assets/images/salto-1/"></div>
+                        <div id="personaje_salto_2" class="spd_movieclip" width="198" height="184" frames="33" src="assets/images/salto-2/"></div>
+                        <div id="personaje_caida" class="spd_movieclip" width="240" height="288" frames="39" src="assets/images/caida/"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="home-scene">
+                <!--aqui no hay nada pero se deja asi para conservar la funcionalidad de los otros juegos-->
+            </div>
+        </div>
+
+        <div id="cartel" class="modal-on">
+            <div id="cartel-box">
+                <div id="cartel-content">
+                </div>
+            </div>
+        </div>
+
+        <div id="cargador" class="cargador-on">
+            <div class="cargador-img"></div>
+            <div class="cargador-txt" id="cargador_txt">Cargando...</div>
+        </div>
+
+    </div>
+
+<!--Libreria spider-->
+<script src="assets/spider/sprites/sprite.js"></script>
+<script src="assets/spider/sprites/fotograma.js"></script>
+
+<script src="assets/data.js"></script>
+<script src="assets/js/mobile.js"></script>
+<script src="assets/js/modal.js"></script>
+<script src="assets/js/game.js"></script>
+<script>
+
+var boton_mp3 = null
+var underground_mp3 = null
+
+var animation_start = null
+window.onload = function(){
+
+    loadAudio({src:'assets/media/boton.mp3',callBack:function(data){
+    boton_mp3 = data
+        //loadImage({url:'assets/images/escenario_1.jpg',callBack:function(data){
+        
+
+        spdCreateMovieClip({idname:'personaje_caida',callBack:function(){
+        spdCreateMovieClip({idname:'personaje_camina_1',callBack:function(){
+        spdCreateMovieClip({idname:'personaje_camina_2',callBack:function(){
+        spdCreateMovieClip({idname:'personaje_salto_1',callBack:function(){
+        spdCreateMovieClip({idname:'personaje_salto_2',callBack:function(){
+            
+            spdCreateMovieClipAnimation({id:0,moviename:'personaje_caida'})
+            spdCreateMovieClipAnimation({id:1,moviename:'personaje_camina_1'})
+            spdCreateMovieClipAnimation({id:2,moviename:'personaje_camina_2'})
+            spdCreateMovieClipAnimation({id:3,moviename:'personaje_salto_1'})
+            spdCreateMovieClipAnimation({id:4,moviename:'personaje_salto_2'})
+
+            prepareWindow()
+            setGame()
+
+        }})
+        }})
+        }})
+        }})
+        }})
+
+
+        //}})
+    }})
+
+}
+    
+</script>
+</body>
+</html>

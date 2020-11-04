@@ -1,0 +1,19 @@
+#fondo-2{
+	position: absolute;
+	width: 1305px;
+	height: 220px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url(../images/fondo_2.png);
+	-316
+}
+#fondo-1{
+	position: absolute;
+	width: 1968px;
+	height: 314px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url(../images/fondo_1.png);
+}

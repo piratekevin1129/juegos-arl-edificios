@@ -85,6 +85,9 @@
 	left: 30%;
 	top: 30%;
 }
+.fondo-1-init{
+	left: -164px;
+}
 
 /********PARTE1*********/
 .personaje-parte1{
@@ -99,6 +102,10 @@
 	-webkit-animation-duration: 4s;
 	-webkit-animation-fill-mode: forwards;
 
+}
+.personaje-caida{
+	top: 25%;
+	left: 38%;
 }
 .fondo-parte1{
 	animation-name: animacion-fondo-parte1;
@@ -123,14 +130,16 @@
 		top: 30%;
 	}
 	66.6%{
-		left: 28%;
+		left: 26%;
 		top: 30%;
 	}
 	90%{
-		left: 30%;
+		left: 25%;
+		top: 31%;
 	}
 	100%{
-		left: 28%;
+		left: 22%;
+		top: 31%;
 	}
 }
 @keyframes animacion-fondo-parte1{

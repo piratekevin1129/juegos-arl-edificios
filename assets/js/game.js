@@ -52,6 +52,7 @@ function setInstrucciones(start){
 var animacion_swipe = null
 function empezarJuego(){
 	getE('cargador').className = 'cargador-on'
+	getE('cargador_txt').innerHTML = 'Iniciando'
 	unsetModal(function(){
 		game_scene.style.visibility = 'visible'
 		getE('home-scene').style.display = 'none'
@@ -68,9 +69,16 @@ function empezarJuego(){
 }
 
 var animacion_entrada = null
+var preguntas_data = []
+var orden_preguntas = []
+var orden_opciones = []
+var actual_pregunta = 0
+var actual_parte = 1
+
 function setGame(){
+	orden_preguntas = unorderArray(preguntas.length)
 	//poner personaje y fondos en 0
-	prepareParte1()
+	setPersonaje('c1')
 	////////AQUI EMPIEZA TODOO///////
 		
 	animation_start = setTimeout(function(){
@@ -132,7 +140,6 @@ function setPersonaje(key){
 	}
 }
 
-var actual_pregunta = 0
 function startGame(){
 	getE('game-wrapper').classList.remove('game-wrapper-zoom-in')
 	getE('game-wrapper').classList.add('game-wrapper-zoom-out')
@@ -140,24 +147,69 @@ function startGame(){
 		clearTimeout(animacion_entrada)
 		animacion_entrada = null
 
-		setParte1()
+		setParte()
 		
 	},500)
 	
 }
 
-function prepareParte1(){
-	setPersonaje('c1')
-}
-function setParte1(){
-	getE('fondo-1').className = 'fondo-parte1'
-	getE('personaje_mc').className = 'personaje-parte1'
-	
-	spdPlayMovieclip({frame:1,stop:74,loop:false,end:function(){
+function setParte(){
+	if(actual_parte==1){
+		getE('fondo-1').className = 'fondo-parte1'
+		getE('personaje_mc').className = 'personaje-parte1'
 		
-		console.log("pregunta")
-        //setPregunta()
-    }},1)
+		spdPlayMovieclip({frame:1,stop:74,loop:false,end:function(){
+			
+			console.log("pregunta")
+	        setPregunta()
+	    }},1)
+	}
+	
+}
+
+function setCaida(){
+	setPersonaje('c')
+	getE('personaje_mc').className = 'personaje-caida'
+	spdPlayMovieclip({frame:1,stop:39,loop:false,end:function(){
+		
+		console.log("cayó")
+		setModal({
+			content:'<p>Has perdido, inténtalo de nuevo</p>',
+			button:true,
+			value:'continuar',
+			action:'intentarNuevamente'
+	    })
+    }},0)
+}
+
+var letras = ['a','b','c','d']
+function setPregunta(){
+	orden_opciones = unorderArray(preguntas[actual_pregunta].respuestas)
+	var h = '<h1>'+(actual_pregunta+1)+' - '+preguntas[actual_pregunta].pregunta+'</h1>'
+	for(i = 0;i<preguntas[actual_pregunta].respuestas.length;i++){
+		h+='<h6 onclick="clickRespuesta('+i+')"><span>'+letras[i]+')</span> '+preguntas[actual_pregunta].respuestas[i].respuesta+'</h6>'
+	}
+	setModal({
+		content:h,
+		button:false
+    })
+}
+
+function clickRespuesta(r){
+	if((r+1)==preguntas[actual_pregunta].correcta){
+		//bien, seguir
+	}else{
+		unsetModal(function(){
+			setCaida()
+		})
+		
+	}
+}
+
+function intentarNuevamente(){
+	unsetModal(function(){
+		//setCaida()
+	})
 }
 
 ////////////////GAME FUNCTIONS///////////////////////

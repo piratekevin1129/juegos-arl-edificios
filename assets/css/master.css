@@ -736,7 +736,7 @@ header{
     width: -moz-calc(100% - 30px);
     height: auto;
     margin: 0px auto;
-    padding: 0px 25px;
+    padding: 0px 10px;
     padding-bottom: 10px;
     box-sizing: border-box;
     background: #f7f7f7;
@@ -751,12 +751,53 @@ header{
     padding: 0px;
     width: 100%;
 
-    font-family: 'Barlow-Regular';
-    font-size: 15px;
+    font-family: 'Barlow-Medium';
+    font-size: 14px;
     color: #000000;
     text-align: center;
     font-weight: normal;
     line-height: normal;
+}
+#cartel-content > h1{
+    display: block;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+    width: 100%;
+
+    font-family: 'Barlow-SemiBold';
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+    font-weight: normal;
+    line-height: normal;
+}
+#cartel-content > h6{
+    display: block;
+    margin: 0px;
+    margin-bottom: 5px;
+    padding: 7px;
+    box-sizing: border-box;
+    width: 100%;
+    border: rgba(0,0,0,0) solid 2px;
+    border-radius: 4px;
+
+    font-family: 'Barlow-Regular';
+    font-size: 14px;
+    color: #000000;
+    text-align: left;
+    font-weight: normal;
+    line-height: normal;
+
+    transition: border 0.3s;
+    -webkit-transition: border 0.3s;
+}
+#cartel-content > h6:hover{
+    cursor: pointer;
+    border: 2px solid rgba(0,0,0,1);
+}
+#cartel-content > h6 span{
+    font-family: 'Barlow-SemiBold' !important;
 }
 #cartel-foot{
     position: relative;

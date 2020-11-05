@@ -101,6 +101,8 @@ var boton_mp3 = null
 var underground_mp3 = null
 
 var animation_start = null
+var loader_counter = parseInt((100/5))
+var loader = 1
 window.onload = function(){
 
     loadAudio({src:'assets/media/boton.mp3',callBack:function(data){
@@ -109,10 +111,20 @@ window.onload = function(){
         
 
         spdCreateMovieClip({idname:'personaje_caida',callBack:function(){
+        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        loader++
         spdCreateMovieClip({idname:'personaje_camina_1',callBack:function(){
+        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        loader++
         spdCreateMovieClip({idname:'personaje_camina_2',callBack:function(){
+        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        loader++
         spdCreateMovieClip({idname:'personaje_salto_1',callBack:function(){
+        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        loader++
         spdCreateMovieClip({idname:'personaje_salto_2',callBack:function(){
+        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        loader++
             
             spdCreateMovieClipAnimation({id:0,moviename:'personaje_caida'})
             spdCreateMovieClipAnimation({id:1,moviename:'personaje_camina_1'})

@@ -126,6 +126,77 @@ header{
     left: 0px;
 }
 
+#background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-position: 0px bottom;
+    background-repeat: no-repeat;
+    background-image: url(../images/fondo_2.png);
+    box-sizing: border-box;
+}
+#fondo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+}
+.cielo{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0px;
+    left: 0px;
+    background: #5BC2E3;
+    background: linear-gradient(to bottom, #00A3D9, #FAFCFF);
+    background: -ms-linear-gradient(to bottom, #00A3D9, #FAFCFF);
+    background: -moz-linear-gradient(to bottom, #00A3D9, #FAFCFF);
+    background: -webkit-linear-gradient(to bottom, #00A3D9, #FAFCFF);
+    background: -o-linear-gradient(to bottom, #00A3D9, #FAFCFF);
+}
+.nubes{
+    position: absolute;
+    width: 1560px;
+    height: 310px;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-image: url(../images/nubes.png);
+
+    animation-name: animacion-nubes;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-name: animacion-nubes;
+    -webkit-animation-duration: 20s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+@keyframes animacion-nubes{
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: -780px;
+    }
+}
+
+.edificios{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-repeat: no-repeat;
+    background-position: 0px bottom;
+    background-image: url(../images/fondo_1.png);
+}
+
 #game-scene{
     position: absolute;
     width: 100%;
@@ -595,4 +666,140 @@ header{
     line-height: normal;
     margin: 0px;
     padding: 0px;
+}
+
+/**********************CARTEL********************/
+#cartel{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    height: calc(100% - 73px);
+    height: -moz-calc(100% - 73px);
+    overflow: hidden;
+    top: 73px;
+    left: 0px;
+}
+.cartel-on{
+    visibility: visible;
+    transition: visibility 0s;
+    -webkit-transition: visibility 0s;
+}
+.cartel-off{
+    visibility: hidden;
+    transition: visibility 1s;
+    -webkit-transition: visibility 1s;
+}
+
+#cartel-box{
+    position: relative;
+    width: 346px;
+    height: auto;
+    margin: 0px auto;
+    transition: top 1s;
+    -webkit-transition: top 1s;
+}
+.cartel-on #cartel-box{
+    top: 0px;
+}
+.cartel-off #cartel-box{
+    top: -100%;
+}
+
+#cartel-head{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 184px;
+    margin: 0px;
+    padding: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../images/contenedor-top.png);
+}
+#cartel-body{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    background-position: 0px 0px;
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-image: url(../images/contenedor-middle.png);
+}
+#cartel-content{
+    position: relative;
+    width: 100%;
+    width: calc(100% - 30px);
+    width: -moz-calc(100% - 30px);
+    height: auto;
+    margin: 0px auto;
+    padding: 0px 25px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    background: linear-gradient(to bottom, #f7f7f7, #d4d4d2);
+    background: -webkit-linear-gradient(to bottom, #f7f7f7, #d4d4d2);
+    background: -o-linear-gradient(to bottom, #f7f7f7, #d4d4d2);
+}
+#cartel-content > p{
+    display: block;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+    width: 100%;
+
+    font-family: 'Barlow-Regular';
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+    font-weight: normal;
+    line-height: normal;
+}
+#cartel-foot{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 57px;
+    margin: 0px;
+    padding: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../images/contenedor-bottom.png);
+}
+
+#cartel-button{
+    position: absolute;
+    display: block;
+    width: 136px;
+    height: 41px;
+    border-radius: 4px;
+    background: #b8c502;
+    background: linear-gradient(to bottom, #b8c502, #b8c502);
+    background: -webkit-linear-gradient(to bottom, #b8c502, #b8c502);
+    background: -o-linear-gradient(to bottom, #b8c502, #b8c502);
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    font-family: 'Barlow-Bold';
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: normal;
+    line-height: normal;
+    text-transform: uppercase;
+
+    left: 50%;
+    left: calc(50% - (136px / 2));
+    left: -moz-calc(50% - (136px / 2));
+    bottom: -6px;
+    box-shadow: -1px 1px 2px 1px rgba(0,0,0,0.3);
+
+    transition: box-shadow 0.3s, transform 0.3s, -webkit-transform 0.3s, -o-transform 0.3s;
+    -webkit-transition: box-shadow 0.3s, transform 0.3s, -webkit-transform 0.3s, -o-transform 0.3s;
 }

@@ -1,3 +1,28 @@
+#game-wrapper{
+	transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in, -o-transform 0.5s ease-in;
+	-webkit-transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in, -o-transform 0.5s ease-in;
+}
+
+.game-wrapper-zoom-in{
+	transform-origin: 0% 0%;
+	-webkit-transform-origin: 0% 0%;
+	-o-transform-origin: 0% 0%;
+
+	transform: scale(1.5);
+	-webkit-transform: scale(1.5);
+	-o-transform: scale(1.5);
+}
+.game-wrapper-zoom-out{
+	transform-origin: 0% 0%;
+	-webkit-transform-origin: 0% 0%;
+	-o-transform-origin: 0% 0%;
+
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-o-transform: scale(1);
+}
+
+
 #fondo-2{
 	position: absolute;
 	width: 1305px;
@@ -6,14 +31,128 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-image: url(../images/fondo_2.png);
-	-316
+	bottom: 0px;
+	
 }
+.fondo-2-start{
+	animation-name: animacion-fondo-2;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	-webkit-animation-name: animacion-fondo-2;
+	-webkit-animation-duration: 20s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+.fondo-2-init{
+	left: 0px;
+}
+.fondo-2-stop{
+	animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+}
+
+@keyframes animacion-fondo-2{
+	0%{
+		left: 0px;
+	}
+	100%{
+		left:-316px;
+	}
+}
+
 #fondo-1{
 	position: absolute;
 	width: 1968px;
-	height: 314px;
+	height: 285px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-image: url(../images/fondo_1.png);
+	bottom: 0px;
+}
+
+#personaje_mc{
+	position: absolute;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	width: 240px;
+	height: 288px;
+	background-color: rgba(255,255,255,0.3);
+}
+.personaje-init{
+	left: 30%;
+	top: 30%;
+}
+
+/********PARTE1*********/
+.personaje-parte1{
+	animation-name: animacion-personaje-parte1;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: animacion-personaje-parte1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+
+}
+.fondo-parte1{
+	animation-name: animacion-fondo-parte1;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: animacion-fondo-parte1;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes animacion-personaje-parte1{
+	0%{
+		left: 30%;
+		top: 30%;
+	}
+	50%{
+		left: 30%;
+		top: 30%;
+	}
+	66.6%{
+		left: 28%;
+		top: 30%;
+	}
+	90%{
+		left: 30%;
+	}
+	100%{
+		left: 28%;
+	}
+}
+@keyframes animacion-fondo-parte1{
+	0%{
+		left: -164px;
+	}
+	100%{
+		left: -356px;
+	}
+}
+
+#cuerda{
+	position: absolute;
+	width: 6px;
+	height: 735px;
+}
+#personaje_camina_1,
+#personaje_camina_2,
+#personaje_salto_1,
+#personaje_salto_2,
+#personaje_caida{
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }

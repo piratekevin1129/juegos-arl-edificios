@@ -42,13 +42,18 @@
         </header>
 
         <div id="game">
+            <div id="fondo">
+                <div class="cielo"></div>
+                <div class="nubes"></div>
+            </div>
             <div id="game-scene">
-                <div id="game-wrapper">
+                <div id="game-wrapper" class="game-wrapper-zoom-in">
                     <!--fondo-->
-                    <div id="fondo-2"></div>
-                    <div id="fondo-1"></div>
+                    <div id="fondo-2" class="fondo-2-init"></div>
+                    <div id="fondo-1" class="fondo-1-init"></div>
                     <!---->
-                    <div id="personaje_mc">
+                    <div id="personaje_mc" class="personaje-init">
+                        <div id="cuerda"></div>
                         <div id="personaje_camina_1" class="spd_movieclip" width="200" height="184" frames="74" src="assets/images/caminata-1/"></div>
                         <div id="personaje_camina_2" class="spd_movieclip" width="214" height="251" frames="71" src="assets/images/caminata-2/"></div>
                         <div id="personaje_salto_1" class="spd_movieclip" width="204" height="271" frames="37" src="assets/images/salto-1/"></div>
@@ -58,14 +63,20 @@
                 </div>
             </div>
             <div id="home-scene">
-                <!--aqui no hay nada pero se deja asi para conservar la funcionalidad de los otros juegos-->
+                <div id="background">
+                    <div class="edificios"></div>
+                </div>
             </div>
         </div>
 
-        <div id="cartel" class="modal-on">
+        <div id="cartel" class="cartel-on">
             <div id="cartel-box">
-                <div id="cartel-content">
-                </div>
+                <div id="cartel-head"></div>
+                <div id="cartel-body">
+                    <div id="cartel-content"></div>
+                </div>                
+                <div id="cartel-foot"></div>
+                <button id="cartel-button"></button>
             </div>
         </div>
 

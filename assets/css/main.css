@@ -1,3 +1,67 @@
+#alpha{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #000000;
+}
+.alpha-off{
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility 0.5s, opacity 0.5s;
+	-webkit-transition: visibility 0.5s, opacity 0.5s;
+}
+.alpha-on{
+	opacity: 1;
+	visibility: visible;
+	transition: visibility 0s, opacity 0.5s;
+	-webkit-transition: visibility 0s, opacity 0.5s;
+}
+
+#camara{
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 1968px;
+	height: 100%;
+	top: 0px;
+}
+.camara-init{
+	left: 0px;
+}
+.camara-parte1{
+	animation-name: animacion-parte1;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	-webkit-animation-name: animacion-parte1;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+}
+.camara-parte2{
+	animation-name: animacion-parte2;
+	animation-duration: 3.1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	-webkit-animation-name: animacion-parte2;
+	-webkit-animation-duration: 3.1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+}
+.camara-parte3{
+	animation-name: animacion-parte3;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	-webkit-animation-name: animacion-parte3;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+}
+
 #game-wrapper{
 	transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in, -o-transform 0.5s ease-in;
 	-webkit-transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in, -o-transform 0.5s ease-in;
@@ -47,6 +111,10 @@
 .fondo-2-init{
 	left: 0px;
 }
+.fondo-2-play{
+	animation-play-state: running;
+	-webkit-animation-play-state: running;
+}
 .fondo-2-stop{
 	animation-play-state: paused;
 	-webkit-animation-play-state: paused;
@@ -70,98 +138,92 @@
 	background-size: contain;
 	background-image: url(../images/fondo_1.png);
 	bottom: 0px;
+	left: -106px;
 }
 
-#personaje_mc{
+#personaje_recorrido,#personaje_salto,#personaje_balancea{
 	position: absolute;
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 0px;
-	width: 240px;
-	height: 288px;
 	background-color: rgba(255,255,255,0.3);
 }
+
 .personaje-init{
-	left: 30%;
-	top: 30%;
+	left: 318px;
+	top: -3px;
 }
-.fondo-1-init{
-	left: -164px;
+.personaje-salto-1{
+	left: 569px;
+	top: -1px;
+}
+.personaje-salto-2{
+	left: 957px;
+	top: 0px;
+}
+#personaje_balancea{
+	transform-origin: center 0%; 
+	-webkit-transform-origin: center 0%;
+	-o-transform-origin: center 0%;
+	width: 241px;
+	height: 412px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(../images/salto/imagen23.png);
 }
 
-/********PARTE1*********/
-.personaje-parte1{
-	animation-name: animacion-personaje-parte1;
+.personaje-balancea-start{
+	animation-name: animacion-balanceo;
+	animation-duration: 5s;
 	animation-timing-function: linear;
-	animation-iteration-count: 1;
-	animation-duration: 4s;
-	animation-fill-mode: forwards;
-	-webkit-animation-name: animacion-personaje-parte1;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: animacion-balanceo;
+	-webkit-animation-duration: 5s;
 	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-duration: 4s;
-	-webkit-animation-fill-mode: forwards;
-
-}
-.personaje-caida{
-	top: 25%;
-	left: 38%;
-}
-.fondo-parte1{
-	animation-name: animacion-fondo-parte1;
-	animation-timing-function: linear;
-	animation-iteration-count: 1;
-	animation-duration: 4s;
-	animation-fill-mode: forwards;
-	-webkit-animation-name: animacion-fondo-parte1;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-duration: 4s;
-	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
 }
 
-@keyframes animacion-personaje-parte1{
+/***********ANIMACIONES**********/
+
+@keyframes animacion-parte1{
 	0%{
-		left: 30%;
-		top: 30%;
+		left: 0px;
+	}
+	100%{
+		left: -250px;
+	}
+}
+@keyframes animacion-parte2{
+	0%{
+		left: -250px;
+	}
+	100%{
+		left: -578px;
+	}
+}
+@keyframes animacion-parte3{
+	0%{
+		left: -578px;
+	}
+	100%{
+		left: -828px;
+	}
+}
+@keyframes animacion-balanceo{
+	0%{
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
 	}
 	50%{
-		left: 30%;
-		top: 30%;
-	}
-	66.6%{
-		left: 26%;
-		top: 30%;
-	}
-	90%{
-		left: 25%;
-		top: 31%;
+		transform: rotate(5deg);
+		-webkit-transform: rotate(5deg);
+		-o-transform: rotate(5deg);
 	}
 	100%{
-		left: 22%;
-		top: 31%;
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
 	}
-}
-@keyframes animacion-fondo-parte1{
-	0%{
-		left: -164px;
-	}
-	100%{
-		left: -356px;
-	}
-}
-
-#cuerda{
-	position: absolute;
-	width: 6px;
-	height: 735px;
-}
-#personaje_camina_1,
-#personaje_camina_2,
-#personaje_salto_1,
-#personaje_salto_2,
-#personaje_caida{
-	position: absolute;
-	top: 0px;
-	left: 0px;
 }

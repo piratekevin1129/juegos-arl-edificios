@@ -48,19 +48,20 @@
             </div>
             <div id="game-scene">
                 <div id="game-wrapper" class="game-wrapper-zoom-in">
-                    <!--fondo-->
-                    <div id="fondo-2" class="fondo-2-init"></div>
-                    <div id="fondo-1" class="fondo-1-init"></div>
-                    <!---->
-                    <div id="personaje_mc" class="personaje-init">
-                        <div id="cuerda"></div>
-                        <div id="personaje_camina_1" class="spd_movieclip" width="200" height="184" frames="74" src="assets/images/caminata-1/"></div>
-                        <div id="personaje_camina_2" class="spd_movieclip" width="214" height="251" frames="71" src="assets/images/caminata-2/"></div>
-                        <div id="personaje_salto_1" class="spd_movieclip" width="204" height="271" frames="37" src="assets/images/salto-1/"></div>
-                        <div id="personaje_salto_2" class="spd_movieclip" width="198" height="184" frames="33" src="assets/images/salto-2/"></div>
-                        <div id="personaje_caida" class="spd_movieclip" width="240" height="288" frames="39" src="assets/images/caida/"></div>
+                    <div id="camara">
+                        <!--fondo-->
+                        <div id="fondo-2"></div>
+                        <div id="fondo-1"></div>
+                        <!---->
+
+                        <div id=""></div>
+                        <div id="personaje_recorrido" class="spd_movieclip" width="872" height="345" frames="150" src="assets/images/recorrido/"></div>
+                        <div id="personaje_salto" class="spd_movieclip" width="241" height="412" frames="23" src="assets/images/salto/"></div>
+                        <div id="personaje_balancea"></div>
                     </div>
+                    
                 </div>
+                <div id="alpha" class="alpha-off"></div>
             </div>
             <div id="home-scene">
                 <div id="background">
@@ -110,34 +111,19 @@ window.onload = function(){
         //loadImage({url:'assets/images/escenario_1.jpg',callBack:function(data){
         
 
-        spdCreateMovieClip({idname:'personaje_caida',callBack:function(){
-        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
-        loader++
-        spdCreateMovieClip({idname:'personaje_camina_1',callBack:function(){
-        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
-        loader++
-        spdCreateMovieClip({idname:'personaje_camina_2',callBack:function(){
-        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
-        loader++
-        spdCreateMovieClip({idname:'personaje_salto_1',callBack:function(){
-        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
-        loader++
-        spdCreateMovieClip({idname:'personaje_salto_2',callBack:function(){
-        getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
-        loader++
+        spdCreateMovieClip({idname:'personaje_recorrido',callBack:function(){
+        //getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        //loader++
+        spdCreateMovieClip({idname:'personaje_salto',callBack:function(){
+        //getE('cargador_txt').innerHTML = (loader_counter*loader)+'%'
+        //loader++
             
-            spdCreateMovieClipAnimation({id:0,moviename:'personaje_caida'})
-            spdCreateMovieClipAnimation({id:1,moviename:'personaje_camina_1'})
-            spdCreateMovieClipAnimation({id:2,moviename:'personaje_camina_2'})
-            spdCreateMovieClipAnimation({id:3,moviename:'personaje_salto_1'})
-            spdCreateMovieClipAnimation({id:4,moviename:'personaje_salto_2'})
+            spdCreateMovieClipAnimation({id:0,moviename:'personaje_recorrido'})
+            spdCreateMovieClipAnimation({id:1,moviename:'personaje_salto'})
 
             prepareWindow()
             setGame()
 
-        }})
-        }})
-        }})
         }})
         }})
 

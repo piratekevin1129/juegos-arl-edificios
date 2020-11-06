@@ -1,3 +1,9 @@
+var loaded_frames = []
+var spd_movieclip_data = null
+var spd_movieclip_frames = 0
+var spd_movieclip_w = 0
+var spd_movieclip_h = 0
+
 function spdCreateMovieClip(data){
     var element = document.getElementById(data.idname)
     var width = element.getAttribute("width")
@@ -7,55 +13,85 @@ function spdCreateMovieClip(data){
     element.style.width = width+'px'
     element.style.height = height+'px'
 
-    loadFrames(1,data,width,height,frames,src)
+    spd_movieclip_data = data.callBack
+    spd_movieclip_frames = frames
+    spd_movieclip_idname = data.idname
+    spd_movieclip_w = width
+    spd_movieclip_h = height
+    loaded_frames = []
+
+    loadFrames(src)
 }
 
-function loadFrames(initial,data,w,h,frames,src){
-    if(initial>frames){
-        for(var f = 2;f<=frames;f++){
-            var canvas_id = document.getElementById(data.idname+'_frame_'+f)
-            canvas_id.style.visibility = 'hidden'
+function extractInitial(str){
+    var ini = ""
+    var arr = str.split("")
+    var dot = false
+    for(var n = 6;n<arr.length;n++){
+        if(arr[n]=='.'){
+            dot = true
         }
-        data.callBack()
-    }else{
-        var url = src+'imagen'+initial+'.png'
-        loadFrame(url,loadFrames,initial,data,w,h,frames,src)
+        if(!dot){
+            ini+=arr[n]
+        }
     }
+    return parseInt(ini)
 }
 
-function loadFrame(url,callBack,initial,data,w,h,frames,src){
-    var image_frame = new Image()
-    image_frame.onload = function(){
-        image_frame.onload = null
-        image_frame.null = null
-
+function loadFrames(src){
+    var object = document.getElementById(spd_movieclip_idname)
+    for(var ii = 0;ii<spd_movieclip_frames;ii++){
+        loaded_frames.push(false)
+        var initial = (ii+1)
         var canvas = document.createElement('canvas')
-        canvas.width = w
-        canvas.height = h
+        canvas.width = spd_movieclip_w
+        canvas.height = spd_movieclip_h
         canvas.className = 'canvas_fotograma'
-        canvas.id = data.idname+'_frame_'+(initial)
+        canvas.id = spd_movieclip_idname+'_frame_'+(initial)
 
-        var ctx = canvas.getContext('2d')
-        ctx.drawImage(this,0,0,w,h)
-
-        var object = document.getElementById(data.idname)
         object.appendChild(canvas)
         
+        var url = src+'imagen'+initial+'.png'
+        var image_frame = new Image()
+        image_frame.onload = function(){
+            this.onload = null
+            this.onerror = null
+            
+            var url_str = this.src
+            var url_decoded = url_str.split("/")
+            //console.log(url_decoded[url_decoded.length-1])
+            var initial_2 = extractInitial(url_decoded[url_decoded.length-1])
 
-        image_frame = null
-        initial++
-        callBack(initial,data,w,h,frames,src)
+            var ctx = document.getElementById(spd_movieclip_idname+'_frame_'+initial_2).getContext('2d')
+            ctx.drawImage(this,0,0,spd_movieclip_w,spd_movieclip_h)
+            loaded_frames[(initial_2-1)] = true
+            checkLoadedFrames()
+        }
+        image_frame.onerror = function(){
+            this.onload = null
+            this.onerror = null
+            console.log("error loading: "+this.src)
+        }
+        image_frame.src = url
     }
-    image_frame.onerror = function(){
-        console.log("error cargando el fotograma : "+url)
-        image_frame.onload = null
-        image_frame.null = null
-        
-        image_frame = null
-        initial++
-        callBack(initial,data,w,h,frames,src)
+}
+
+function checkLoadedFrames(){
+    var completed = 0
+    for(var lf = 0;lf<loaded_frames.length;lf++){
+        if(loaded_frames[lf]){
+            completed++
+        }
     }
-    image_frame.src = url
+    //console.log(completed,loaded_frames.length)
+    if(completed==loaded_frames.length){
+        for(var f = 2;f<=spd_movieclip_frames;f++){
+            var canvas_id = document.getElementById(spd_movieclip_idname+'_frame_'+f)
+            canvas_id.style.visibility = 'hidden'
+        }
+        console.log("cargó")
+        spd_movieclip_data()
+    }
 }
 
 function setFotograma(fotograma,moviename){

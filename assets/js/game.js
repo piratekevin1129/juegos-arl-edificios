@@ -78,7 +78,8 @@ var actual_parte = 1
 function setGame(){
 	orden_preguntas = unorderArray(preguntas.length)
 	//poner personaje y fondos en 0
-	setPersonaje('c1')
+	setPersonaje('r')
+	getE('camara').className = 'camara-init'
 	////////AQUI EMPIEZA TODOO///////
 		
 	animation_start = setTimeout(function(){
@@ -94,48 +95,20 @@ function setGame(){
 	//spdSetMovieclip({id:3,f:1})
 }
 
-function setCuerda(key){
-	switch(key){
-		case 'c':
-		//
-		break;
-		case 'c1':
-		//
-		break;
-		case 'c2':
-		//
-		break;
-		case 's1':
-		//
-		break;
-		case 's2':
-		//
-		break;
-	}
-}
-
 function setPersonaje(key){
-	getE('personaje_camina_1').style.display = 'none'
-	getE('personaje_camina_2').style.display = 'none'
-	getE('personaje_salto_1').style.display = 'none'
-	getE('personaje_salto_2').style.display = 'none'
-	getE('personaje_caida').style.display = 'none'
+	getE('personaje_recorrido').style.display = 'none'
+	getE('personaje_salto').style.display = 'none'
+	getE('personaje_balancea').style.display = 'none'
 
 	switch(key){
-		case 'c':
-		getE('personaje_caida').style.display = 'block'
+		case 'r':
+		getE('personaje_recorrido').style.display = 'block'
 		break;
-		case 'c1':
-		getE('personaje_camina_1').style.display = 'block'
+		case 's':
+		getE('personaje_salto').style.display = 'block'
 		break;
-		case 'c2':
-		getE('personaje_camina_2').style.display = 'block'
-		break;
-		case 's1':
-		getE('personaje_salto_1').style.display = 'block'
-		break;
-		case 's2':
-		getE('personaje_salto_2').style.display = 'block'
+		case 'b':
+		getE('personaje_balancea').style.display = 'block'
 		break;
 	}
 }
@@ -147,39 +120,60 @@ function startGame(){
 		clearTimeout(animacion_entrada)
 		animacion_entrada = null
 
+		//llamar la parte
 		setParte()
-		
 	},500)
-	
+}
+
+function nextParte(){
+	if(actual_parte==1){
+		actual_parte = 2
+	}else if(actual_parte==2){
+		actual_parte = 3
+	}
 }
 
 function setParte(){
+	setPersonaje('r')
+	getE('camara').className = 'camara-parte'+actual_parte
+	getE('fondo-2').className = 'fondo-2-start fondo-2-play'
+
 	if(actual_parte==1){
-		getE('fondo-1').className = 'fondo-parte1'
-		getE('personaje_mc').className = 'personaje-parte1'
-		
-		spdPlayMovieclip({frame:1,stop:74,loop:false,end:function(){
+		spdPlayMovieclip({frame:1,stop:62,loop:false,end:function(){
 			
-			console.log("pregunta")
+			//console.log("pregunta")
+			getE('fondo-2').classList.remove('fondo-2-play')
+			getE('fondo-2').classList.add('fondo-2-stop')
 	        setPregunta()
-	    }},1)
+	    }},0)
+	    /*var animacion_fake = setTimeout(function(){
+	    	clearTimeout(animacion_fake)
+	    	animacion_fake = null
+	    	spdStopMovieclip(1)
+
+	    },3000)*/
+	}else if(actual_parte==2){
+		spdPlayMovieclip({frame:63,stop:128,loop:false,end:function(){
+			
+			//console.log("pregunta")
+			getE('fondo-2').classList.remove('fondo-2-play')
+			getE('fondo-2').classList.add('fondo-2-stop')
+	        setPregunta()
+	    }},0)
+	}else if(actual_parte==3){
+		spdPlayMovieclip({frame:129,stop:150,loop:false,end:function(){
+			
+			//console.log("pregunta")
+			getE('fondo-2').classList.remove('fondo-2-play')
+			getE('fondo-2').classList.add('fondo-2-stop')
+			//volver a empezar
+			actual_parte = 1
+			getE('camara').className = 'camara-init'
+			setParte()
+	        
+	    }},0)
 	}
 	
-}
-
-function setCaida(){
-	setPersonaje('c')
-	getE('personaje_mc').className = 'personaje-caida'
-	spdPlayMovieclip({frame:1,stop:39,loop:false,end:function(){
-		
-		console.log("cayó")
-		setModal({
-			content:'<p>Has perdido, inténtalo de nuevo</p>',
-			button:true,
-			value:'continuar',
-			action:'intentarNuevamente'
-	    })
-    }},0)
 }
 
 var letras = ['a','b','c','d']
@@ -198,17 +192,49 @@ function setPregunta(){
 function clickRespuesta(r){
 	if((r+1)==preguntas[actual_pregunta].correcta){
 		//bien, seguir
+		unsetModal(function(){
+			setPasa()
+		})
 	}else{
 		unsetModal(function(){
 			setCaida()
 		})
-		
 	}
 }
 
+function setPasa(){
+	if(actual_parte==1){
+		nextParte()
+		setParte()
+	}else if(actual_parte==2){
+		nextParte()
+		setParte()
+	}
+}
+
+function setCaida(){
+	setPersonaje('s')
+	getE('personaje_salto').className = 'spd_movieclip personaje-salto-'+actual_parte
+
+	spdPlayMovieclip({frame:1,stop:23,loop:false,end:function(){
+		setPersonaje('b')
+		getE('personaje_balancea').className = 'personaje-balancea-start personaje-salto-'+actual_parte
+		
+		setModal({
+			content:'<p>Has perdido, inténtalo de nuevo</p>',
+			button:true,
+			value:'continuar',
+			action:'intentarNuevamente'
+	    })
+    }},1)
+}
+
 function intentarNuevamente(){
+	getE('alpha').className = 'alpha-on'
+	
 	unsetModal(function(){
-		//setCaida()
+		//limpiar todo
+		setParte()
 	})
 }
 

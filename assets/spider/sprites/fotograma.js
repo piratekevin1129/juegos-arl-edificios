@@ -166,7 +166,7 @@ function spdPlayMovieclip(data,id){
                 setFotograma(nuevo_frame,movieclips[id].moviename)
             }
         }
-    },40)
+    },50)
 }
 
 function spdSetMovieclip(data){

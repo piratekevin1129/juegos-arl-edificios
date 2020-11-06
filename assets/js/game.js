@@ -122,7 +122,7 @@ function startGame(){
 
 		//llamar la parte
 		setParte()
-	},500)
+	},1000)
 }
 
 function nextParte(){
@@ -163,14 +163,10 @@ function setParte(){
 	}else if(actual_parte==3){
 		spdPlayMovieclip({frame:129,stop:150,loop:false,end:function(){
 			
-			//console.log("pregunta")
-			getE('fondo-2').classList.remove('fondo-2-play')
-			getE('fondo-2').classList.add('fondo-2-stop')
 			//volver a empezar
 			actual_parte = 1
 			getE('camara').className = 'camara-init'
 			setParte()
-	        
 	    }},0)
 	}
 	
@@ -183,6 +179,7 @@ function setPregunta(){
 	for(i = 0;i<preguntas[actual_pregunta].respuestas.length;i++){
 		h+='<h6 onclick="clickRespuesta('+i+')"><span>'+letras[i]+')</span> '+preguntas[actual_pregunta].respuestas[i].respuesta+'</h6>'
 	}
+
 	setModal({
 		content:h,
 		button:false
@@ -192,6 +189,8 @@ function setPregunta(){
 function clickRespuesta(r){
 	if((r+1)==preguntas[actual_pregunta].correcta){
 		//bien, seguir
+		actual_pregunta++
+		console.log("sumó: "+actual_pregunta)
 		unsetModal(function(){
 			setPasa()
 		})
@@ -229,12 +228,21 @@ function setCaida(){
     }},1)
 }
 
+var animacion_alfa = null
 function intentarNuevamente(){
 	getE('alpha').className = 'alpha-on'
 	
 	unsetModal(function(){
 		//limpiar todo
-		setParte()
+
+		getE('camara').className = 'camara-parte'+actual_parte+'-fixed'
+		animacion_alfa = setTimeout(function(){
+			clearTimeout(animacion_alfa)
+			animacion_alfa = null
+			getE('alpha').className = 'alpha-off'
+			setParte()
+		},100)
+		
 	})
 }
 

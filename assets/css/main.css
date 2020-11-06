@@ -33,38 +33,50 @@
 }
 .camara-parte1{
 	animation-name: animacion-parte1;
-	animation-duration: 3s;
-	animation-timing-function: linear;
+	animation-duration: 4s;
+	animation-timing-function: ease-in-out;
 	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 	-webkit-animation-name: animacion-parte1;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-timing-function: ease-in-out;
 	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+}
+.camara-parte1-fixed{
+	left: 0px;
 }
 .camara-parte2{
 	animation-name: animacion-parte2;
-	animation-duration: 3.1s;
-	animation-timing-function: linear;
+	animation-duration: 4s;
+	animation-timing-function: ease-in-out;
 	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 	-webkit-animation-name: animacion-parte2;
-	-webkit-animation-duration: 3.1s;
-	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-timing-function: ease-in-out;
 	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+}
+.camara-parte2-fixed{
+	left: -250px;
 }
 .camara-parte3{
 	animation-name: animacion-parte3;
-	animation-duration: 1s;
-	animation-timing-function: linear;
+	animation-duration: 1.1s;
+	animation-timing-function: ease-in-out;
 	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 	-webkit-animation-name: animacion-parte3;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 1.1s;
+	-webkit-animation-timing-function: ease-in-out;
 	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
 }
 
 #game-wrapper{
-	transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in, -o-transform 0.5s ease-in;
-	-webkit-transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in, -o-transform 0.5s ease-in;
+	transition: transform 1s ease-in, -webkit-transform 1s ease-in, -o-transform 1s ease-in;
+	-webkit-transition: transform 1s ease-in, -webkit-transform 1s ease-in, -o-transform 1s ease-in;
 }
 
 .game-wrapper-zoom-in{
@@ -86,7 +98,6 @@
 	-o-transform: scale(1);
 }
 
-
 #fondo-2{
 	position: absolute;
 	width: 1305px;
@@ -99,14 +110,14 @@
 	
 }
 .fondo-2-start{
-	animation-name: animacion-fondo-2;
+	/*animation-name: animacion-fondo-2;
 	animation-duration: 20s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	-webkit-animation-name: animacion-fondo-2;
 	-webkit-animation-duration: 20s;
 	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;*/
 }
 .fondo-2-init{
 	left: 0px;
@@ -146,10 +157,10 @@
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 0px;
-	background-color: rgba(255,255,255,0.3);
+	/*background-color: rgba(255,255,255,0.3);*/
 }
 
-.personaje-init{
+#personaje_recorrido{
 	left: 318px;
 	top: -3px;
 }
@@ -162,9 +173,9 @@
 	top: 0px;
 }
 #personaje_balancea{
-	transform-origin: center 0%; 
-	-webkit-transform-origin: center 0%;
-	-o-transform-origin: center 0%;
+	transform-origin: 80% 0%; 
+	-webkit-transform-origin: 80% 0%;
+	-o-transform-origin: 80% 0%;
 	width: 241px;
 	height: 412px;
 	background-size: contain;
@@ -175,11 +186,11 @@
 
 .personaje-balancea-start{
 	animation-name: animacion-balanceo;
-	animation-duration: 5s;
+	animation-duration: 3s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	-webkit-animation-name: animacion-balanceo;
-	-webkit-animation-duration: 5s;
+	-webkit-animation-duration: 3s;
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: infinite;
 }

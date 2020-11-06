@@ -35,7 +35,7 @@ var preguntas = [
 		respuestas:[
 			{respuesta:'Botas de caucho, guantes, delantal, careta, respirador de cartucho químico'},
 			{respuesta:'Botas de caucho, guantes, delantal, casco, mascarilla'},
-			{respuesta:'Botas , guantes, delantal, casco, respirador de cartucho químico'},
+			{respuesta:'Botas, guantes, delantal, casco, respirador de cartucho químico'},
 		],
 		correcta:1
 	},

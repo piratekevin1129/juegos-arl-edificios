@@ -36,7 +36,7 @@ function setInstrucciones(start){
     	setModal({
 			content:html,
 			button:true,
-			value:'jugar',
+			value:'jugar de nuevo',
 			action:'empezarJuego'
 	    })
     }else{
@@ -204,7 +204,7 @@ function setPregunta(){
 	//console.log(orden_opciones)
 	var h = '<h1>'+(actual_pregunta+1)+' - '+preguntas[u].pregunta+'</h1>'
 	for(i = 0;i<orden_opciones.length;i++){
-		h+='<h6 onclick="clickRespuesta('+i+')"><span>'+letras[i]+')</span> '+preguntas[u].respuestas[orden_opciones[i]].respuesta+'</h6>'
+		h+='<h6 onclick="clickRespuesta('+orden_opciones[i]+')"><span>'+letras[i]+')</span> '+preguntas[u].respuestas[orden_opciones[i]].respuesta+'</h6>'
 	}
 
 	setModal({
@@ -214,6 +214,7 @@ function setPregunta(){
 }
 
 function clickRespuesta(r){
+	console.log(r+1)
 	if((r+1)==preguntas[u].correcta){
 		//bien, seguir
 		actual_pregunta++

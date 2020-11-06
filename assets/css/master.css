@@ -167,15 +167,6 @@ header{
     background-position: center;
     background-size: 100% 100%;
     background-image: url(../images/nubes.png);
-
-    animation-name: animacion-nubes;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    -webkit-animation-name: animacion-nubes;
-    -webkit-animation-duration: 20s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
 }
 @keyframes animacion-nubes{
     0%{
@@ -698,12 +689,7 @@ header{
     transition: top 1s;
     -webkit-transition: top 1s;
 }
-.cartel-on #cartel-box{
-    top: 0px;
-}
-.cartel-off #cartel-box{
-    top: -100%;
-}
+
 
 #cartel-head{
     position: relative;
@@ -712,7 +698,7 @@ header{
     height: 184px;
     margin: 0px;
     padding: 0px;
-    background-position: center;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url(../images/contenedor-top.png);
@@ -729,7 +715,7 @@ header{
 
     background-position: 0px 0px;
     background-repeat: repeat-y;
-    background-size: 100% auto;
+    background-size: 100% 100%;
     background-image: url(../images/contenedor-middle.png);
 }
 #cartel-content{
@@ -799,10 +785,7 @@ header{
     transition: border 0.3s;
     -webkit-transition: border 0.3s;
 }
-#cartel-content > h6:hover{
-    cursor: pointer;
-    border: 2px solid rgba(0,0,0,1);
-}
+
 #cartel-content > h6 span{
     font-family: 'Barlow-SemiBold' !important;
 }
@@ -813,7 +796,7 @@ header{
     height: 57px;
     margin: 0px;
     padding: 0px;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url(../images/contenedor-bottom.png);
@@ -822,7 +805,7 @@ header{
 #cartel-button{
     position: absolute;
     display: block;
-    width: 136px;
+    width: 140px;
     height: 41px;
     border-radius: 4px;
     background: #b8c502;
@@ -835,7 +818,7 @@ header{
     border: none;
 
     font-family: 'Barlow-Bold';
-    font-size: 18px;
+    font-size: 16px;
     color: #FFFFFF;
     text-align: center;
     font-weight: normal;
@@ -843,8 +826,8 @@ header{
     text-transform: uppercase;
 
     left: 50%;
-    left: calc(50% - (136px / 2));
-    left: -moz-calc(50% - (136px / 2));
+    left: calc(50% - (140px / 2));
+    left: -moz-calc(50% - (140px / 2));
     bottom: -6px;
     box-shadow: -1px 1px 2px 1px rgba(0,0,0,0.3);
 

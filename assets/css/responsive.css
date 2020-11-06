@@ -1,0 +1,283 @@
+@media (min-width: 768px){
+    .game-wrapper-zoom-in{
+		transform-origin: 0% 0%;
+		-webkit-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+
+		transform: scale(1.4);
+		-webkit-transform: scale(1.4);
+		-o-transform: scale(1.4);
+	}
+	.game-wrapper-zoom-out{
+		transform-origin: 0% 0%;
+		-webkit-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		-o-transform: scale(1);
+	}
+
+	.nubes{
+		animation-name: animacion-nubes;
+	    animation-duration: 20s;
+	    animation-iteration-count: infinite;
+	    animation-timing-function: linear;
+	    -webkit-animation-name: animacion-nubes;
+	    -webkit-animation-duration: 20s;
+	    -webkit-animation-iteration-count: infinite;
+	    -webkit-animation-timing-function: linear;
+	}
+	.cartel-on #cartel-box{
+	    top: 0px;
+	}
+	.cartel-off #cartel-box{
+	    top: -100%;
+	}
+	#cartel-button:hover{
+	    cursor: pointer;
+	    transform: scale(1.1);
+	    -webkit-transform: scale(1.1);
+	    -o-transform: scale(1.1);
+	}
+	#cartel-content > h6:hover{
+	    cursor: pointer;
+	    border: 1px solid rgba(0,0,0,1);
+	}
+}
+
+@media (min-width: 560px) and (max-width: 767px){
+    #container{
+        width: 100%;
+        height: 578px;
+    }
+    .logo-sura{
+        margin-left: 10px;
+    }
+    .titulo{
+        margin-right: 10px;
+    }
+    .logo-arl{
+        margin-left: 10px;
+    }
+    #oficio-title{
+        margin-right: 10px;
+    }
+
+    .fondo{
+        background-size: cover;
+    }
+
+    .nubes{
+		animation-name: animacion-nubes;
+	    animation-duration: 20s;
+	    animation-iteration-count: infinite;
+	    animation-timing-function: linear;
+	    -webkit-animation-name: animacion-nubes;
+	    -webkit-animation-duration: 20s;
+	    -webkit-animation-iteration-count: infinite;
+	    -webkit-animation-timing-function: linear;
+	}
+
+    /************MAIN**************/
+    .game-wrapper-zoom-in{
+		transform-origin: 0% 0%;
+		-webkit-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}
+	.game-wrapper-zoom-out{
+		transform-origin: 0% 0%;
+		-webkit-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		-o-transform: scale(1);
+	}
+    #camara{
+		transform: translateX(-120px);
+		-webkit-transform: translateX(-120px);
+		-o-transform: translateX(-120px);
+	}
+   	#cartel-content > p{
+	    font-size: 14px;
+	}
+	#cartel-content > h1{
+	    font-size: 14px;
+	}
+	#cartel-content > h6{
+	    padding: 5px;
+	    font-size: 14px;
+	}
+	.cartel-on #cartel-box{
+	    top: 0px;
+	}
+	.cartel-off #cartel-box{
+	    top: -100%;
+	}
+	#cartel-content > h6:hover{
+	    cursor: pointer;
+	    border: 1px solid rgba(0,0,0,1);
+	}
+    /******************************/
+
+    /************MODAL**************/
+    #modal-box{
+        width: 350px;
+        padding: 10px;
+    }
+    
+    #modal-title{
+        font-size: 18px;
+    }
+    
+    #cartel-button:hover{
+	    cursor: pointer;
+	    transform: scale(1.1);
+	    -webkit-transform: scale(1.1);
+	    -o-transform: scale(1.1);
+	}
+}
+
+@media (min-width: 280px) and (max-width: 559px){
+    #container{
+        width: 100%;
+        height: 578px;
+    }
+    .logo-sura{
+        margin-left: 10px;
+    }
+    .titulo{
+        margin-right: 10px;
+        width: 200px;
+        width: calc(100% - (73px + 30px));
+        width: -moz-calc(100% - (73px + 30px));
+    }
+    .logo-arl{
+        margin-left: 10px;
+    }
+    #oficio-title{
+        margin-right: 10px;
+    }
+
+    .fondo{
+        background-size: cover;
+        background-image: url(../images/fondo-v3.jpg);
+    }
+
+    #game-wrapper{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .nubes{
+        animation: none;
+        animation: unset;
+        -webkit-animation: none;
+        -webkit-animation: unset;
+    }
+
+    /**************MAIN**************/
+    .game-wrapper-zoom-in{
+		transform-origin: 0% 0%;
+		-webkit-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}
+	.game-wrapper-zoom-out{
+		transform-origin: 0% 0%;
+		-webkit-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		-o-transform: scale(1);
+	}
+    #cartel-box{
+	    position: relative;
+	    width: 300px;
+	}
+	#cartel-content{
+	    width: 100%;
+	    width: calc(100% - 26px);
+	    width: -moz-calc(100% - 26px);
+	    padding: 0px 5px;
+	    min-height: 206px;
+	}
+	#cartel-body{
+	    min-height: 206px;
+	    max-height: 309px;
+	    
+	    background-position: 0px 0px;
+	    background-repeat: repeat-y;
+	}
+
+	#camara{
+		transform: translateX(-250px);
+		-webkit-transform: translateX(-250px);
+		-o-transform: translateX(-250px);
+	}
+   	#cartel-content > p{
+	    font-size: 15px;
+	}
+	#cartel-content > h1{
+	    font-size: 15px;
+	}
+	#cartel-content > h6{
+	    padding: 5px;
+	    font-size: 15px;
+	}
+	.cartel-on #cartel-box{
+	    top: -30px;
+	}
+	.cartel-off #cartel-box{
+	    top: -100%;
+	}
+
+    /************MODAL**************/
+    #modal-box{
+        width: 95%;
+        padding: 10px;
+    }
+    
+    #modal-title{
+        font-size: 18px;
+    }
+    #modal-button{
+        cursor: default;
+    }
+    #modal-close-btn{
+        cursor: default;
+    }
+    .modal-instrucciones-gif > div{
+        cursor: default;
+    }
+    .modal-instrucciones-gif > div video{
+        cursor: default;
+    }
+    .modal-instrucciones-gif > div button{
+        cursor: default;
+    }
+
+    /********TOOLTIP*********/
+    #tooltip{
+        width: 90%;
+        top: 15%;
+    }
+    .tooltip-off{
+        right: -100%;
+    }
+    .tooltip-on{
+        right: 5%;
+    }
+}

@@ -187,11 +187,9 @@
 .personaje-balancea-start{
 	animation-name: animacion-balanceo;
 	animation-duration: 3s;
-	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	-webkit-animation-name: animacion-balanceo;
 	-webkit-animation-duration: 3s;
-	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: infinite;
 }
 
@@ -226,15 +224,21 @@
 		transform: rotate(0deg);
 		-webkit-transform: rotate(0deg);
 		-o-transform: rotate(0deg);
+		-webkit-animation-timing-function: ease-in-out;
+		animation-timing-function: ease-in-out;
 	}
 	50%{
-		transform: rotate(5deg);
-		-webkit-transform: rotate(5deg);
-		-o-transform: rotate(5deg);
+		transform: rotate(7deg);
+		-webkit-transform: rotate(7deg);
+		-o-transform: rotate(7deg);
+		-webkit-animation-timing-function: ease-in-out;
+		animation-timing-function: ease-in-out;
 	}
 	100%{
 		transform: rotate(0deg);
 		-webkit-transform: rotate(0deg);
 		-o-transform: rotate(0deg);
+		-webkit-animation-timing-function: ease-in-out;
+		animation-timing-function: ease-in-out;
 	}
 }

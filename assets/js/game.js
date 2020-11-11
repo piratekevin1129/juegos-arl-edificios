@@ -279,7 +279,7 @@ function intentarNuevamente(){
 
 function setFinal(){
 	setModal({
-		content:'<p>¡Muy Bien! Has respondido correctamente todas las preguntas</p><p>Para volver a jugar haz clic en <span>JUGAR DE NUEVO</span></p>',
+		content:'<p>¡Muy Bien! Has respondido correctamente todas las preguntas.</p><p>Para volver a jugar haz clic en <span>Jugar de nuevo</span></p>',
 		button:true,
 		value:'jugar de nuevo',
 		action:'repeatGame'

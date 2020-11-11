@@ -1,7 +1,7 @@
 var preguntas = [
 	{
 		id:1,
-		pregunta:'La rotulación de productos quimicos se hace con rombos a colores. El color rojo significa:',
+		pregunta:'La rotulación de productos químicos se hace con rombos a colores. El color rojo significa:',
 		respuestas:[
 			{respuesta:'Inflamabilidad'},
 			{respuesta:'Reactividad'},
@@ -11,7 +11,7 @@ var preguntas = [
 	},
 	{
 		id:2,
-		pregunta:'En zona de polvo ¿qué elementos debemos llevar puesto?',
+		pregunta:'En zona de polvo ¿qué elementos debemos llevar puestos?',
 		respuestas:[
 			{respuesta:'Casco de seguridad'},
 			{respuesta:'Botas antideslizantes'},

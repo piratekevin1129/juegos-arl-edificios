@@ -751,6 +751,9 @@ header{
     font-weight: normal;
     line-height: normal;
 }
+#cartel-content > p > span{
+    font-family: 'Barlow-Bold';
+}
 #cartel-content > h1{
     display: block;
     margin: 0px;

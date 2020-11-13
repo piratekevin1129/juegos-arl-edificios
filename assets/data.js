@@ -1,7 +1,7 @@
 var preguntas = [
 	{
 		id:1,
-		pregunta:'La rotulación de productos químicos se hace con rombos a colores. El color rojo significa:',
+		pregunta:'La rotulación de productos químicos se hace con rombos de colores. El color rojo significa:',
 		respuestas:[
 			{respuesta:'Inflamabilidad'},
 			{respuesta:'Reactividad'},
